@@ -21,12 +21,17 @@ app.use(helmet());
 connectDB();
 app.use(cookieParser());
 
-app.use(
-  cors({
-    origin: "http://localhost:3000", // Your frontend URL
-    credentials: true, // Allow cookies/authorization headers
-  })
-);
+
+
+
+app.use(cors({
+  origin: [
+    "http://localhost:3000",
+    "https://grocery-app-frontend-one.vercel.app"
+  ],
+  credentials: true
+}));
+
 
 app.use(bodyParser.json());
 app.use(express.json());
